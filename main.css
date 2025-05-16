@@ -1,0 +1,27 @@
+*{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+body{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    max-width: 600px;
+    overflow: hidden;
+    justify-content: center;
+    .card{
+    background: #f3fcae;
+    border-radius: 15px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    padding: 1rem;
+    margin: 1rem;
+    width: 175px;
+    height: 300px;
+    }
+}
+
