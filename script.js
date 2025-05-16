@@ -1,0 +1,110 @@
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.carousel').forEach(carousel => {
+        const cardsWrapper = carousel.querySelector('.cards-wrapper');
+        const cards = cardsWrapper.querySelectorAll('.card');
+        const prevBtn = carousel.querySelector('button.prev');
+        const nextBtn = carousel.querySelector('button.next');
+
+        // Configurações
+        const cardWidth = cards[0].offsetWidth + 16; // 16px de margem (ajuste se mudar no CSS)
+        const originalCount = cards.length;
+
+        // Duplica os cards uma vez para fazer o loop parecer infinito
+        cards.forEach(card => {
+            const clone = card.cloneNode(true);
+            cardsWrapper.appendChild(clone);
+        });
+
+        let position = 0;
+        let slideInterval = null;
+        const slideSpeed = 2;
+
+        cardsWrapper.style.transition = 'transform 0.2s ease';
+
+        function updatePosition(px) {
+            cardsWrapper.style.transform = `translateX(${-px}px)`;
+        }
+
+        function stopSliding() {
+            if (slideInterval) {
+                clearInterval(slideInterval);
+                slideInterval = null;
+            }
+        }
+
+        function slideRight() {
+            position += slideSpeed;
+            if (position >= cardWidth * originalCount) {
+                // Reset instantâneo (sem animação)
+                cardsWrapper.style.transition = 'none';
+                position = 0;
+                updatePosition(position);
+
+                // Força reflow e volta a animação
+                cardsWrapper.offsetHeight;
+                cardsWrapper.style.transition = 'transform 0.2s ease';
+            } else {
+                updatePosition(position);
+            }
+        }
+
+        function slideLeft() {
+            position -= slideSpeed;
+            if (position < 0) {
+                // Vai pro fim instantaneamente
+                cardsWrapper.style.transition = 'none';
+                position = cardWidth * originalCount;
+                updatePosition(position);
+
+                cardsWrapper.offsetHeight;
+                cardsWrapper.style.transition = 'transform 0.2s ease';
+            } else {
+                updatePosition(position);
+            }
+        }
+
+        // Hover para deslizar
+        nextBtn.addEventListener('mouseenter', () => {
+            stopSliding();
+            slideInterval = setInterval(slideRight, 20);
+        });
+        prevBtn.addEventListener('mouseenter', () => {
+            stopSliding();
+            slideInterval = setInterval(slideLeft, 20);
+        });
+        nextBtn.addEventListener('mouseleave', stopSliding);
+        prevBtn.addEventListener('mouseleave', stopSliding);
+
+        // Clique para "pular" um card
+        nextBtn.addEventListener('click', () => {
+            stopSliding();
+            position += cardWidth;
+            if (position >= cardWidth * originalCount) {
+                position = 0;
+                cardsWrapper.style.transition = 'none';
+                updatePosition(position);
+                cardsWrapper.offsetHeight;
+                cardsWrapper.style.transition = 'transform 0.2s ease';
+            } else {
+                updatePosition(position);
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            stopSliding();
+            position -= cardWidth;
+            if (position < 0) {
+                position = cardWidth * (originalCount - 1);
+                cardsWrapper.style.transition = 'none';
+                updatePosition(position);
+                cardsWrapper.offsetHeight;
+                cardsWrapper.style.transition = 'transform 0.2s ease';
+            } else {
+                updatePosition(position);
+            }
+        });
+
+        // Inicializa na posição correta
+        updatePosition(position);
+    });
+});
