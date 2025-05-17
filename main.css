@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'Lavishly Yours';
+    src: url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap') format('truetype');
+}
 *{
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
@@ -9,8 +13,9 @@ body{
     flex-direction: column;
 }
 :root{
-    --bg-by:#9e6730;
-    --bg-card:#e8c39e;
+
+    --bg-by:#e8c39e;
+    --bg-card:#9e6730;
     --bg-title:#804000;
 }
 
@@ -21,24 +26,34 @@ body{
     overflow: hidden;
     justify-content: center;
     .card{
-    background-color: var(--bg-card);
+    display: flex;
+    flex-direction: column;
+    background-color:none;
     border-radius: 15px;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     padding: 1rem;
     margin: 1rem;
-    width: 175px;
-    height: 475px;
-    p{
-        font-size: 1.2rem;
-        margin: 0.5rem 0;
-    }
+    width: 250px;
+    height: auto;
+    transition: 1s;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    
     img{
-        width: 45%;
-        height: auto;
-        border-radius: 15px;
+        width: 200px;
+        height: 300px;
     }}
     
 }
+.card p{
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+
+    }
+.card:hover{
+        transform: scale(1.05);
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    }
 .fundo{
     background-color: var(--bg-by);
 }
@@ -81,12 +96,19 @@ button.next {
     right: 5px;
 }
 .titulo{
-    width: 75%;
-    background-color: var(--bg-title);
-    border-radius: 20px;
+    margin-top: 20px;
+    height: auto;
+    
 }
 .titulo h1{
+    font-family: 'Lavishly Yours', cursive;
+    font-size: 4rem;
+    color: black;
+    transform: translatey(-55%);
+}
+.titulo h2{
+    font-family: 'Lavishly Yours', cursive;
     font-size: 3rem;
-    color: var(--bg-card);
-    justify-items: center;
+    color: black;
+    transform: translatey(-55%);
 }
