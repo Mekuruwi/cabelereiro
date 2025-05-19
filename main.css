@@ -9,8 +9,8 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-    display: flex;
     flex-direction: column;
+    display: flex;
 }
 :root{
 
@@ -22,7 +22,7 @@ body{
 .container{
     display: flex;
     flex-direction: row;
-    width: 67%;
+    width: 80%;
     overflow: hidden;
     justify-content: center;
     .card{
@@ -31,17 +31,15 @@ body{
     background-color:none;
     border-radius: 15px;
     padding: 1rem;
-    margin: 1rem;
-    width: 250px;
-    height: auto;
+    width: 25vw;
+    margin: 20px;
     transition: 1s;
     flex-direction: column;
     justify-items: center;
     align-items: center;
     
     img{
-        width: 200px;
-        height: 300px;
+        height: auto;
     }}
     
 }
@@ -55,7 +53,7 @@ body{
         box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     }
 .fundo{
-    background-color: var(--bg-by);
+    background: linear-gradient(135deg , var(--bg-by),var(--bg-card));
 }
 .carousel {
     position: relative;
@@ -97,18 +95,16 @@ button.next {
 }
 .titulo{
     margin-top: 20px;
-    height: auto;
-    
-}
+ }
 .titulo h1{
     font-family: 'Lavishly Yours', cursive;
     font-size: 4rem;
     color: black;
-    transform: translatey(-55%);
+    margin: 0;
 }
-.titulo h2{
+.titulo p{
     font-family: 'Lavishly Yours', cursive;
     font-size: 3rem;
     color: black;
-    transform: translatey(-55%);
+    margin: 0;
 }
