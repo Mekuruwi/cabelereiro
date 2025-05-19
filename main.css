@@ -1,7 +1,3 @@
-@font-face {
-    font-family: 'Lavishly Yours';
-    src: url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap') format('truetype');
-}
 *{
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
@@ -97,13 +93,11 @@ button.next {
     margin-top: 20px;
  }
 .titulo h1{
-    font-family: 'Lavishly Yours', cursive;
     font-size: 4rem;
     color: black;
     margin: 0;
 }
 .titulo p{
-    font-family: 'Lavishly Yours', cursive;
     font-size: 3rem;
     color: black;
     margin: 0;
