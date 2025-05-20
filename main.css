@@ -272,7 +272,7 @@ button.next {
   background-color: #333;
   color: white;
   padding: 0; /* reduzido o topo */
-  margin: 0;
+  width: 100%;
 }
 
 .rodape-conteudo {
@@ -292,6 +292,9 @@ button.next {
   margin-top: 0;      /* Remove espaço externo */
   padding-top: 0;     /* Remove espaço interno */
   transform: translateX(-200px);
+  a{
+    transform: translateY(-100px);
+  }
 }
 
 .logo-rodape {
@@ -305,6 +308,7 @@ button.next {
   display: flex;
   gap: 50px;
 }
+
 
 .redes-sociais a img {
   width: 30px;
