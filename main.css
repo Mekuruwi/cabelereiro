@@ -1,12 +1,16 @@
 *{
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 body{
+    font-family: Arial, sans-serif;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
     display: flex;
+    background-color: var(--bg-by);
 }
 :root{
 
@@ -101,4 +105,250 @@ button.next {
     font-size: 3rem;
     color: black;
     margin: 0;
+}
+.menu-topo {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 250px;
+}
+
+.menu-links ul {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+}
+
+.menu-links ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu-links ul li a:hover {
+  color: #cf975f;
+}
+
+.redes-sociais {
+  display: flex;
+  gap: 40px; /* aumenta o espaço entre os ícones */
+  align-items: center;
+}
+
+.redes-sociais a img {
+  height: 25px;
+  transition: transform 0.2s;
+}
+
+
+.redes-sociais a img:hover {
+  transform: scale(1.1);
+}
+
+/* Espaço abaixo do menu fixo */
+.conteudo {
+  margin-top: 90px;
+  padding: 20px;
+}
+
+.carrossel {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  margin-top: 70px; /* distância do menu fixo */
+}
+
+.slides {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.seta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.seta:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.seta.esquerda {
+  left: 10px;
+}
+
+.seta.direita {
+  right: 10px;
+}
+
+
+.carrossel {
+  position: relative;
+  width: 100vw;
+  height: 400px;
+  overflow: hidden;
+  margin-top: 70px;
+}
+
+.slides {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.submenu {
+  position: relative;
+}
+
+.submenu-linha {
+  display: none;
+  position: absolute;
+  top: 100%; /* encosta a caixinha logo abaixo do texto "Serviços" */
+  left: 0;
+  background-color: #444;
+  padding: 10px 0;
+  border-radius: 8px;
+  min-width: 150px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  flex-direction: column;
+}
+
+/* Garante que a caixinha fique visível ao passar o mouse sobre o item ou a caixa */
+.submenu:hover .submenu-linha,
+.submenu-linha:hover {
+  display: flex;
+}
+
+/* Estilo dos links na caixinha */
+.submenu-linha a {
+  color: white;
+  padding: 10px 20px;
+  display: block;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.submenu-linha a:hover {
+  background-color: #666;
+}
+
+.rodape {
+  background-color: #333;
+  color: white;
+  padding: 0; /* reduzido o topo */
+  margin: 0;
+}
+
+.rodape-conteudo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.rodape-esquerda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-top: 0;      /* Remove espaço externo */
+  padding-top: 0;     /* Remove espaço interno */
+  transform: translateX(-200px);
+}
+
+.logo-rodape {
+  width: 300px;
+  margin-top: 0;         /* Garante que não há margem externa acima */
+  padding-top: 0;        /* Garante que não há espaço interno acima */
+  display: block;        /* Elimina comportamento inline que pode causar espaços extras */
+}
+
+.redes-sociais {
+  display: flex;
+  gap: 50px;
+}
+
+.redes-sociais a img {
+  width: 30px;
+  transition: transform 0.2s;
+}
+
+.redes-sociais a img:hover {
+  transform: scale(1.1);
+}
+
+.info p {
+  margin: 5px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.icone-whats {
+  width: 16px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.rodape-direita {
+  display: flex;
+  align-items: center;
+  transform: translateX(200px);
+}
+
+.logo-rodape-direita {
+  width: 350px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .rodape-conteudo {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .rodape-direita {
+    margin-top: 0px;
+  }
+}
+.info h1{
+  text-align: center;
 }

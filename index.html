@@ -7,7 +7,60 @@
 
     <title>Document</title>
 </head>
-<body class="fundo">
+<body>
+    
+<header class="menu-topo">
+    <div class="logo">
+      <img src="logo1.png" alt="Logo da Empresa">
+    </div>
+
+    <nav class="menu-links">
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">História</a></li>
+
+    <li class="submenu">
+      <a href="#">Serviços</a>
+      <div class="submenu-linha">
+        <a href="#">Cabelo</a>
+        <a href="#">Unhas</a>
+        <a href="#">Estética</a>
+      </div>
+    </li>
+
+        <li><a href="#">Espaço</a></li>
+        <li><a href="#">Diferencial</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+
+<div class="redes-sociais">
+<a href="https://www.instagram.com/estudiorodriigues" target="_blank" rel="noopener">
+  <img src="instagram.png" alt="Instagram">
+  </a>
+  <a href="https://www.facebook.com/estudiorodriigues" target="_blank" rel="noopener">
+    <img src="facebook.png" alt="Facebook">
+  </a>
+  <a href="https://www.tiktok.com/@estudiorodriigues?_t=ZM-8wTZP9nWIT8&_r=1" target="_blank" rel="noopener">
+    <img src="tik-tok.png" alt="TikTok">
+  </a>
+</div>
+
+  </header>
+
+  <main>
+<section class="carrossel">
+  <button class="seta esquerda" onclick="voltarSlide()">&#10094;</button>
+
+  <div class="slides">
+    <img src="rosda (3).png" alt="Imagem 1">
+    <img src="capa2.jpg" alt="Imagem 2">
+    <img src="capa4.jpg" alt="Imagem 3">
+  </div>
+
+  <button class="seta direita" onclick="avancarSlide()">&#10095;</button>
+</section>
+  </main>
     <div class="titulo">
         <h1>cabelo</h1>
         <p>Onde o fio começa, nasce também a força de quem o carrega.</p>
@@ -161,7 +214,33 @@
             </div>
         </div>
         <button class="next">&#10095;</button>
-    </section>
+        </section>
+        <footer class="rodape">
+    <div class="rodape-conteudo">
+
+        <!-- Lado esquerdo -->
+        <div class="rodape-esquerda">
+        <img src="logo1.png" alt="Logo da Empresa" class="logo-rodape">
+
+        <div class="redes-sociais">
+            <a href="https://www.instagram.com/estudiorodriigues"><img src="instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="facebook.png" alt="Facebook"></a>
+            <a href="https://www.tiktok.com/@estudiorodriigues?_t=ZM-8wTZP9nWIT8&_r=1"><img src="tik-tok.png" alt="TikTok"></a>
+        </div>
+        </div>
+        <div class="info">
+            <h1>Contato</h1>
+            <p>🕒 Terça a Sexta: 08:00 AM às 19:00 PM<br>🕒 Sábado: 08:00 AM às 17:00 PM</p>
+            <p>📞 Telefone: (11) 98303-9357</p>
+        </div>
+
+        <!-- Lado direito -->
+        <div class="rodape-direita">
+        <img src="logo2.png" alt="Logo Parceiro" class="logo-rodape-direita">
+        </div>
+
+    </div>
+</footer>
     <script src="script.js"></script>
 </body>
 </html>
