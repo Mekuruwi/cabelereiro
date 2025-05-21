@@ -108,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updatePosition(position);
     });
 });
+
 let slideAtual = 0;
 const slides = document.querySelectorAll('.slides img');
 const totalSlides = slides.length;
@@ -127,4 +128,37 @@ function voltarSlide() {
   mostrarSlide(slideAtual);
 }
 
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const destino = document.querySelector(this.getAttribute('href'));
+      destino.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+  document.querySelectorAll('.toggle-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const content = button.nextElementSibling;
+      const isVisible = content.style.display === 'block';
+      
+      // Fecha todos os outros
+      document.querySelectorAll('.content').forEach(c => c.style.display = 'none');
+  
+      // Alterna visibilidade do clicado
+      content.style.display = isVisible ? 'none' : 'block';
+    });
+  });
+  /*galeria de fotos abrir em slide e aparecer em sequencia sem botoes seletores*/
+let slideIndex = 0;
+const slideshis = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
 
+function showSlide(index) {
+  slideshis.forEach((slide, i) => {
+    slide.classList.remove('active');
+    dots[i].classList.remove('active');
+    if (i === index) {
+      slide.classList.add('active');
+      dots[i].classList.add('active');
+    }
+  });
+}
