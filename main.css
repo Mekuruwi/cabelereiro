@@ -24,11 +24,30 @@ body{
     display: flex;
     background-color: var(--bg-by);
 }
+
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .rodape-conteudo {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .rodape-direita {
+    margin-top: 0px;
+  }
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .kev{
-  
-
-
-.container{
+  .container{
     display: flex;
     flex-direction: row;
     width: 80%;
@@ -49,33 +68,32 @@ body{
     
     img{
         height: auto;
-    }}
-    
-}
-.card p{
+    }}  
+  }
+  .card p{
         font-size: 1.2rem;
         margin: 0.5rem 0;
 
     }
-.card:hover{
+  .card:hover{
         transform: scale(1.05);
         box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     }
-.fundo{
+  .fundo{
     background: linear-gradient(135deg , var(--bg-by),var(--bg-card));
-}
-.carousel {
+  }
+  .carousel {
     position: relative;
     overflow: hidden;
-}
+  }
 
-.cards-wrapper {
-  display: flex;
-  transition: transform 0.2s ease;
-  will-change: transform;
-}
-button.prev,
-button.next {
+  .cards-wrapper {
+    display: flex;
+    transition: transform 0.2s ease;
+    will-change: transform;
+  }
+  button.prev,
+  button.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -88,36 +106,36 @@ button.next {
     border-radius: 3px;
     user-select: none;
     z-index: 10;
-}
+  }
 
-button.prev:hover,
-button.next:hover {
+  button.prev:hover,
+  button.next:hover {
     background: rgba(0,0,0,0.7);
-}
+  }
 
-button.prev {
+  button.prev {
     left: 5px;
-}
+  }
 
-button.next {
+  button.next {
     right: 5px;
-}
-.titulo{
+  }
+  .titulo{
     margin-top: 20px;
- }
-.titulo h1{
+  }
+  .titulo h1{
     font-size: 2rem;
     color: black;
     margin: 0;
-}
-.titulo p{
+  }
+  .titulo p{
     font-size: 1rem;
     color: black;
     margin: 0;
+  }
 }
-}
-
-.menu-topo {
+.Julia{
+  .menu-topo {
   position: fixed;
   top: 0;
   width: 100%;
@@ -351,30 +369,10 @@ button.next {
 .logo-rodape-direita {
   width: 350px;
 }
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .rodape-conteudo {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .rodape-direita {
-    margin-top: 0px;
-  }
-}
 .info h1{
   text-align: center;
 }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
 }
-
-
-
 .dri{
   p{
     margin-bottom: 20px;
