@@ -439,7 +439,7 @@ body{
   width: 90%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 10px 0;/*alterei aqui e dimunuiu o espço entre so botoes*/
+  padding: 0px 0;/*alterei aqui e dimunuiu o espço entre so botoes*/
 }
 
 .Sobre  {
@@ -465,21 +465,25 @@ body{
   transform: scale(1.02);
   }
 .content {
-    display: none;
+    /*display: none;*/
     padding: 10px 0 30px 0;
     padding-left: 15px;
-    animation: fadeIn 0.4s ease-in-out;
+    /*animation: fadeIn 0.4s ease-in-out;*/
     max-width: 800px;
     margin: 0 auto;
     font-size: 16px;
+    /* para o efeito de transição */
+    max-height: 0;/* Começa com altura zero */
+    opacity: 0;/* Começa totalmente transparente */
+    overflow: hidden;/* Garante que o conteúdo não vaze */
+    transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out; /* Define a duração e tipo da transição */
+    }
+    /*adicionei esta parte */
+.content.active-content {
+  max-height: 500px;
+  opacity: 1;/* Torna o conteúdo totalmente visível */
+    }
   }
-  @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-}
-
-
 
 .Mathes{
   header{

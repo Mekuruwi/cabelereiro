@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updatePosition(position);
     });
 });
-
+/*aqui pra baixo é da dri*/
 let slideAtual = 0;
 const slides = document.querySelectorAll('.slides img');
 const totalSlides = slides.length;
@@ -135,64 +135,61 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       destino.scrollIntoView({ behavior: 'smooth' });
     });
   });
+
   document.querySelectorAll('.toggle-btn').forEach(button => {
     button.addEventListener('click', () => {
-      const content = button.nextElementSibling;
-      const isVisible = content.style.display === 'block';
-      
-      // Fecha todos os outros
-      document.querySelectorAll('.content').forEach(c => c.style.display = 'none');
-  
-      // Alterna visibilidade do clicado
-      content.style.display = isVisible ? 'none' : 'block';
-    });
-  });
-  /*galeria de fotos abrir em slide e aparecer em sequencia sem botoes seletores*/
-let slideIndex = 0;
-const slideshis = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-
-/*inclui isso e alterei daqui pra baixo */
-const totalSlideshis = slideshis.length; // Adicionado para o número total de slides
-
-// Função para exibir um slide específico e atualizar o dot
-function showSlide(index) {
-    // Garante que o índice sempre esteja dentro dos limites dos slides
-    slideIndex = (index + totalSlideshis) % totalSlideshis;
-
-    slideshis.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (dots[i]) { // Verifica se o dot existe antes de remover a classe
-            dots[i].classList.remove('active');
+    const content = button.nextElementSibling;
+        // Verifica se o conteúdo já está ativo
+    const wasActive = content.classList.contains('active-content');
+        // Fecha todos os outros conteúdos abertos 
+  document.querySelectorAll('.content').forEach(c => {
+            c.classList.remove('active-content');
+        });// Se o conteúdo clicado NÃO estava ativo (ou seja, queremos abri-lo), adiciona a classe.
+        // Se ele JÁ estava ativo (ou seja, queremos fechá-lo), a linha acima já o fechou.
+    if (!wasActive) {
+    content.classList.add('active-content');
         }
     });
-
-    slideshis[slideIndex].classList.add('active');
-    if (dots[slideIndex]) { // Verifica se o dot existe antes de adicionar a classe
-        dots[slideIndex].classList.add('active');
+});
+  /*galeria de fotos abrir em slide e aparecer em sequencia sem botoes seletores*/
+let currentActiveGallerySlideIndex = 0;
+const slideshis = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+const totalSlideshis = slideshis.length; 
+// Função para exibir um slide específico e atualizar o dot
+function showGallerySlide(newIndex) {
+    const targetIndex = (newIndex + totalSlideshis) % totalSlideshis;
+    if (slideshis[currentActiveGallerySlideIndex]) {
+        slideshis[currentActiveGallerySlideIndex].classList.remove('active');
     }
+    if (dots[currentActiveGallerySlideIndex]) {
+        dots[currentActiveGallerySlideIndex].classList.remove('active');
+    }
+    slideshis[targetIndex].classList.add('active');
+    if (dots[targetIndex]) {
+        dots[targetIndex].classList.add('active');
+    }
+    currentActiveGallerySlideIndex = targetIndex;
 }
-
-// Função para avançar para o próximo slide
-function nextGallerySlide() { // Nome alterado para evitar conflito com 'avancarSlide'
-    slideIndex++;
-    showSlide(slideIndex);
+function nextGallerySlide() {
+    showGallerySlide(currentActiveGallerySlideIndex + 1);
 }
-
 // Inicializa o primeiro slide ao carregar a página
-showSlide(slideIndex);
-
+showGallerySlide(currentActiveGallerySlideIndex);
 // Inicia o slideshow automático a cada 3 segundos (3000ms)
 // Você pode ajustar o tempo conforme a sua preferência
 setInterval(nextGallerySlide, 3000);
 
 function showSlide(index) {
-  slideshis.forEach((slideshis, i) => {
+slideshis.forEach((slideshis, i) => {
     slideshis.classList.remove('active');
-    dots[i].classList.remove('active');
-    if (i === index) {
-      slideshis.classList.add('active');
-      dots[i].classList.add('active');
+dots[i].classList.remove('active');
+if (i === index) {
+    slideshis.classList.add('active');
+dots[i].classList.add('active');
     }
+    
   });
 }
+
+
