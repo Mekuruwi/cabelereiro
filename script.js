@@ -153,11 +153,11 @@ const slideshis = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
 
 function showSlide(index) {
-  slideshis.forEach((slide, i) => {
-    slide.classList.remove('active');
+  slideshis.forEach((slideshis, i) => {
+    slideshis.classList.remove('active');
     dots[i].classList.remove('active');
     if (i === index) {
-      slide.classList.add('active');
+      slideshis.classList.add('active');
       dots[i].classList.add('active');
     }
   });

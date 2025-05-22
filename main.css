@@ -3,6 +3,18 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root{
+
+    --bg-by:#e8c39e;
+    --bg-card:#9e6730;
+    --bg-title:#804000;
+    --cor-principal: #8a620b;
+    --cor-secundaria: #885f06;
+    --cor-destaque: #804000;
+    --cor-fundo: #f0a459;
+    --cor-texto: #0a0a0a;
+    --cor-branco: #ffffff;
+}
 body{
     font-family: Arial, sans-serif;
     justify-content: center;
@@ -12,12 +24,9 @@ body{
     display: flex;
     background-color: var(--bg-by);
 }
-:root{
+.kev{
+  
 
-    --bg-by:#e8c39e;
-    --bg-card:#9e6730;
-    --bg-title:#804000;
-}
 
 .container{
     display: flex;
@@ -106,6 +115,8 @@ button.next {
     color: black;
     margin: 0;
 }
+}
+
 .menu-topo {
   position: fixed;
   top: 0;
@@ -356,7 +367,79 @@ button.next {
 .info h1{
   text-align: center;
 }
-.containerdri {
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+.dri{
+  p{
+    margin-bottom: 20px;
+    font-size: 17px;
+  }
+  h2{
+    font-size: 28px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+  }
+  h1, h2 {
+    color: #804000;
+  }
+  .dot.active{
+  background-color: #804000;
+  border: #ffffff solid 1px;
+  }
+  .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #9e6730;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+  }
+  .dots {/*as bolinhas abaixo do slide*/
+  margin-top: 20px;
+  }
+  .slide.active {
+  opacity: 1;
+  z-index: 1;
+  }
+  .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;/* <- mostra tudo, sem cortar */
+  background-color: #eaccad; /* fundo atrás da imagem */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  border-radius: 10px;
+  }
+  .galeria {
+  padding: 10px 0 30px 0; 
+  background-color: #eaccad;
+  text-align: center;
+  }
+  .galeria h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #804000;
+  }
+  .slider {
+    max-width: 700px;
+    margin: auto;
+    position: relative;
+  }
+  .slide-container {
+    position: relative;
+    height: 400px;
+  }
+  .containerdri {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto;
@@ -398,82 +481,329 @@ button.next {
     margin: 0 auto;
     font-size: 16px;
   }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
 }
+.Mathes{
+  header{
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--cor-principal);
+    color: var(--cor-branco);
+  }
 
+  header .logo {
+    width: 150px;
+    margin-bottom: 20px;
+  }
 
-/*galeria de fotos*/
-.galeria {
-  padding: 10px 0 30px 0; 
-  background-color: #eaccad;
+  header h1 {
+    font-size: 2.5em;
+    margin: 0;
+  }
+
+  header p {
+    font-size: 1.2em;
+    margin: 10px 0 0 0;
+  }
+
+  /* Estilos dos Cards */
+  .event-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .event-card {
+    width: 300px;
+    background-color: var(--cor-branco);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .event-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .event-card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid var(--cor-destaque);
+  }
+
+  .event-card h2 {
+    margin: 20px;
+    color: var(--cor-destaque);
+    font-size: 1.8em;
+  }
+
+  .event-card p {
+    margin: 0 20px 20px 20px;
+    color: var(--cor-texto);
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  /* Galeria de Fotos */
+  .photo-gallery {
+    background-color: var(--cor-branco);
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .photo-gallery h2 {
+    margin-bottom: 20px;
+    color: var(--cor-destaque);
+    font-size: 2em;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .gallery img {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Modal de Detalhes */
+  #event-details {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(253, 253, 253, 0.8);
+    color: var(--cor-branco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  #event-details.hidden {
+    display: none;
+  }
+
+  #details-content {
+    background-color: var(--cor-principal);
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 500px;
+    text-align: center;
+  }
+
+  #event-details button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--cor-branco);
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+  footer {
+    text-align: center;
+    background-color: var(--cor-secundaria);
+    padding: 30px;
+    color: var(--cor-texto);
+  }
+
+  /* Estilo do Vídeo */
+  .video-section {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .video-section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  /* Moldura ao vídeo */
+  .video-container {
+    width: fit-content;
+    max-width: 90%;
+    margin: 0 auto;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 8px solid var(--cor-destaque);
+  }
+
+  /* Ajuste do vídeo */
+  .video-container video {
+    width: auto;
+    max-width: 100%;
+    max-height: 400px;
+    display: block;
+    object-fit: cover;
+    border-radius: 0.8rem;
+  }
+
+  /* Centralizar conteúdo da seção diferenciais e adicionar imagem de fundo */
+  .diferenciais {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 2rem;
+
+    background-image: url('img/fundo\ diferenciais\ 6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Estilo com borda preta em texto branco */
+  .diferenciais h2,
+  .diferenciais p {
+    color: var(--cor-branco);
+    background-color: hsla(34, 77%, 55%, 0.7);
+    padding: 0.15rem 3rem;
+    border-radius: 10px;
+    max-width: 46%;
+    font-weight: bold;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  h2 {
+    text-shadow: 2px 2px rgb(0, 0, 0);
+  }
+
+  p {
+    text-shadow: 2px 2px rgb(0, 0, 0);
+    text-align: justify;
+    hyphens: auto;
+  }
+}
+.Mathdi{
+  header {
   text-align: center;
-}
-.galeria h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-  color: #804000;
-}
-.slider {
-  max-width: 700px;
-  margin: auto;
-  position: relative;
-}
-.slide-container {
-  position: relative;
-  height: 400px;
-}
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;/* <- mostra tudo, sem cortar */
-  background-color: #eaccad; /* fundo atrás da imagem */
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  border-radius: 10px;
-}
-.slide.active {
-  opacity: 1;
-  z-index: 1;
-}
+  padding: 30px 20px;
+  background-color: var(--cor-principal);
+  color: var(--cor-branco);
+  }
 
-.dots {/*as bolinhas abaixo do slide*/
-  margin-top: 20px;
-}
-.dot {
-  height: 12px;
-  width: 12px;
-  margin: 0 5px;
-  background-color: #9e6730;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.3s;
-}
-.dot.active {
-  background-color: #804000;
-  border: #ffffff solid 1px;
-}
-.dri body{
-  font-family: 'Arial' sans-serif;
-  background-color: #eaccad;
-  color: #804000;
-  line-height: 1.6;
-}
-.dri h1, 
-h2 {
-  color: #804000;
-}
-.dri h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-  padding-left: 10px;
-}
-.dri p {
-  margin-bottom: 20px;
-  font-size: 17px;
+  header .logo {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+
+  header h1 {
+    font-size: 2.5em;
+    margin: 0;
+  }
+
+  header p {
+    font-size: 1.2em;
+    margin: 10px 0 0 0;
+  }
+
+  /* Modal de Detalhes */
+  #event-details {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(253, 253, 253, 0.8);
+    color: var(--cor-branco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  #event-details.hidden {
+    display: none;
+  }
+
+  #details-content {
+    background-color: var(--cor-principal);
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 500px;
+    text-align: center;
+  }
+
+  #event-details button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--cor-branco);
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+  footer {
+    text-align: center;
+    background-color: var(--cor-secundaria);
+    padding: 30px;
+    color: var(--cor-texto);
+  }
+
+
+
+  /* Centralizar conteúdo da seção diferenciais e adicionar imagem de fundo */
+  .diferenciais {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 2rem;
+
+    background-image: url('img/fundo\ diferenciais\ 6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Estilo com borda preta em texto branco */
+  .diferenciais h2,
+  .diferenciais p {
+    color: var(--cor-branco);
+    background-color: hsla(34, 77%, 55%, 0.7);
+    padding: 0.15rem 3rem;
+    border-radius: 10px;
+    max-width: 46%;
+    font-weight: bold;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  h2 {
+    text-shadow: 2px 2px rgb(0, 0, 0);
+  }
+
+  p {
+    text-shadow: 2px 2px rgb(0, 0, 0);
+    text-align: justify;
+    hyphens: auto;
+  }
 }
