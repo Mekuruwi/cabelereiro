@@ -22,31 +22,16 @@ body{
     text-align: center;
     flex-direction: column;
     display: flex;
-    background-color: var(--bg-by);
-}
-
-
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .rodape-conteudo {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .rodape-direita {
-    margin-top: 0px;
-  }
-}
-
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+    background: linear-gradient(135deg, var(--bg-by),rgb(175, 150, 124));
+} 
 .kev{
+  width: 100%;
+  font-family: Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  display: flex;
   .container{
     display: flex;
     flex-direction: row;
@@ -65,11 +50,19 @@ body{
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    
     img{
         height: auto;
-    }}  
+    }}
+    .carousel {
+    position: relative;
+    overflow: hidden;
   }
+    .cards-wrapper {
+      display: flex;
+      transition: transform 0.2s ease;
+      will-change: transform;
+    }
+  
   .card p{
         font-size: 1.2rem;
         margin: 0.5rem 0;
@@ -82,21 +75,10 @@ body{
   .fundo{
     background: linear-gradient(135deg , var(--bg-by),var(--bg-card));
   }
-  .carousel {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cards-wrapper {
-    display: flex;
-    transition: transform 0.2s ease;
-    will-change: transform;
-  }
+  
   button.prev,
   button.next {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     background: rgba(0,0,0,0.4);
     border: none;
     color: white;
@@ -106,6 +88,7 @@ body{
     border-radius: 3px;
     user-select: none;
     z-index: 10;
+    transform: translateY(250px);
   }
 
   button.prev:hover,
@@ -119,7 +102,7 @@ body{
 
   button.next {
     right: 5px;
-  }
+  }}
   .titulo{
     margin-top: 20px;
   }
@@ -135,6 +118,7 @@ body{
   }
 }
 .Julia{
+  width: 100%;
   .menu-topo {
   position: fixed;
   top: 0;
@@ -372,8 +356,21 @@ body{
 .info h1{
   text-align: center;
 }
+@media (max-width: 768px) {
+  .rodape-conteudo {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .rodape-direita {
+    margin-top: 0px;
+  }
+}
 }
 .dri{
+  
+  width: 100%;
   p{
     margin-bottom: 20px;
     font-size: 17px;
@@ -420,7 +417,6 @@ body{
   }
   .galeria {
   padding: 10px 0 30px 0; 
-  background-color: #eaccad;
   text-align: center;
   }
   .galeria h2 {
@@ -446,10 +442,6 @@ body{
 
 .Sobre  {
   padding: 30px 0;
-}
-
-.section.light {
-  background-color: #eaccad;
 }
 .toggle-btn {
   width: 500px;
@@ -479,6 +471,10 @@ body{
     margin: 0 auto;
     font-size: 16px;
   }
+  @keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 }
 .Mathes{
   header{
