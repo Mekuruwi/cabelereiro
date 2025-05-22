@@ -428,6 +428,8 @@ body{
     max-width: 700px;
     margin: auto;
     position: relative;
+    height: 400px;
+    overflow: hidden;
   }
   .slide-container {
     position: relative;
@@ -476,6 +478,9 @@ body{
   to { opacity: 1; transform: translateY(0); }
 }
 }
+
+
+
 .Mathes{
   header{
     text-align: center;

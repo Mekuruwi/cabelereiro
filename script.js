@@ -152,6 +152,40 @@ let slideIndex = 0;
 const slideshis = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
 
+/*inclui isso e alterei daqui pra baixo */
+const totalSlideshis = slideshis.length; // Adicionado para o número total de slides
+
+// Função para exibir um slide específico e atualizar o dot
+function showSlide(index) {
+    // Garante que o índice sempre esteja dentro dos limites dos slides
+    slideIndex = (index + totalSlideshis) % totalSlideshis;
+
+    slideshis.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (dots[i]) { // Verifica se o dot existe antes de remover a classe
+            dots[i].classList.remove('active');
+        }
+    });
+
+    slideshis[slideIndex].classList.add('active');
+    if (dots[slideIndex]) { // Verifica se o dot existe antes de adicionar a classe
+        dots[slideIndex].classList.add('active');
+    }
+}
+
+// Função para avançar para o próximo slide
+function nextGallerySlide() { // Nome alterado para evitar conflito com 'avancarSlide'
+    slideIndex++;
+    showSlide(slideIndex);
+}
+
+// Inicializa o primeiro slide ao carregar a página
+showSlide(slideIndex);
+
+// Inicia o slideshow automático a cada 3 segundos (3000ms)
+// Você pode ajustar o tempo conforme a sua preferência
+setInterval(nextGallerySlide, 3000);
+
 function showSlide(index) {
   slideshis.forEach((slideshis, i) => {
     slideshis.classList.remove('active');
