@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const cardWidth = cards[0].offsetWidth + 16; // 16px de margem (ajuste se mudar no CSS)
         const originalCount = cards.length;
 
-        // Duplica os cards uma vez para fazer o loop parecer infinito
         cards.forEach(card => {
             const clone = card.cloneNode(true);
             cardsWrapper.appendChild(clone);
@@ -66,11 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
         // Hover para deslizar
         nextBtn.addEventListener('mouseenter', () => {
             stopSliding();
-            slideInterval = setInterval(slideRight, 20);
+            slideInterval = setInterval(slideRight, 70);
         });
         prevBtn.addEventListener('mouseenter', () => {
             stopSliding();
-            slideInterval = setInterval(slideLeft, 20);
+            slideInterval = setInterval(slideLeft, 70);
         });
         nextBtn.addEventListener('mouseleave', stopSliding);
         prevBtn.addEventListener('mouseleave', stopSliding);
