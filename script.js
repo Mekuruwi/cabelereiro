@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let position = 0;
         let slideInterval = null;
-        const slideSpeed = 2;
+        const slideSpeed = 8;
 
         cardsWrapper.style.transition = 'transform 0.2s ease';
 
