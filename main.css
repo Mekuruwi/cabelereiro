@@ -22,9 +22,14 @@ body{
     text-align: center;
     flex-direction: column;
     display: flex;
-    background: linear-gradient(135deg, var(--bg-by),rgb(175, 150, 124));
+    gap: 100px;
+    background-image: url(imagens/capa2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 } 
 .kev{
+  background: linear-gradient(135deg, var(--bg-by), var(--bg-card));
   width: 100%;
   font-family: Arial, sans-serif;
   justify-content: center;
@@ -32,10 +37,12 @@ body{
   text-align: center;
   flex-direction: column;
   display: flex;
+  margin-bottom: 20px;
+  gap: 10px;
   .container{
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 75%;
     overflow: hidden;
     justify-content: center;
     .card{
@@ -50,8 +57,10 @@ body{
     flex-direction: column;
     justify-items: center;
     align-items: center;
+    gap: 5px;
     img{
         height: auto;
+        margin-bottom: 10px;
     }}
     .carousel {
     position: relative;
@@ -88,7 +97,7 @@ body{
     border-radius: 3px;
     user-select: none;
     z-index: 10;
-    transform: translateY(250px);
+    transform: translateY(250%);
   }
 
   button.prev:hover,
@@ -97,11 +106,11 @@ body{
   }
 
   button.prev {
-    left: 5px;
+    left: 100px;
   }
 
   button.next {
-    right: 5px;
+    right: 100px;
   }}
   .titulo{
     margin-top: 20px;
@@ -369,7 +378,7 @@ body{
 }
 }
 .dri{
-  
+  background: linear-gradient(135deg, var(--bg-by), var(--bg-card));
   width: 100%;
   p{
     margin-bottom: 20px;
@@ -484,7 +493,9 @@ body{
   opacity: 1;/* Torna o conteúdo totalmente visível */
     }
   }
+  
 .Mathes{
+  background: linear-gradient(135deg, var(--bg-by), var(--bg-card));
   header{
     text-align: center;
     padding: 30px 20px;
@@ -700,6 +711,7 @@ body{
   }
 }
 .Mathdi{
+  background: linear-gradient(135deg, var(--bg-by), var(--bg-card));
   header {
   text-align: center;
   padding: 30px 20px;
