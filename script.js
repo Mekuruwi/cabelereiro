@@ -190,5 +190,19 @@ dots[i].classList.add('active');
     
   });
 }
+const observador = new IntersectionObserver((entradas) => {
+    entradas.forEach(entrada => {
+      if (entrada.isIntersecting) {
+        entrada.target.classList.remove('invisivel');
+      } else {
+        entrada.target.classList.add('invisivel');
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
 
+  document.querySelectorAll('.animar').forEach(el => {
+    observador.observe(el);
+  });
 
